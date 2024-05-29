@@ -9,9 +9,9 @@ export default function PartnershipSection({}: Props) {
     <section className="py-20">
       <div className="container mx-auto px-5">
         <div className="flex flex-col items-center gap-3">
-          <p className="text-center text-primary-regular font-bold text-4xl">
+          <h3 className="text-center text-primary-regular font-bold text-4xl">
             In Collaboration With
-          </p>
+          </h3>
           <div className="mt-5 flex gap-5">
             <Link
               target="_blank"
