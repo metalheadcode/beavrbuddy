@@ -37,7 +37,7 @@ export default function HowItWorksSection({}: Props) {
     <section className="relative bg-gradient-to-r from-secondary-dark to-secondary rounded-b-4xl">
       <div className="container mx-auto py-20">
         <h3 className="text-center text-primary-regular font-bold text-4xl">
-          In Collaboration With
+          How It Works?
         </h3>
         <div className="mt-20 w-full px-5 grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-3 lg:gap-5 md:gap-3 gap-2 overflow-scroll-x place-items-center">
           {hiws.map((hiw, index) => (
