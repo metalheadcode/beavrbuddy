@@ -1,3 +1,4 @@
+import PresenceAnimation from "./PresenceAnimation";
 import React from "react";
 
 type Props = {
@@ -12,11 +13,15 @@ export default function Buttons({
   className,
 }: Props) {
   return (
-    <button
-      onClick={onClick}
-      className={`bg-secondary rounded-full px-10 py-5 ${className}`}
-    >
-      <span className="text-primary font-semibold text-xl">{label}</span>
-    </button>
+    <PresenceAnimation>
+      <button
+        onClick={onClick}
+        className={`w-full bg-secondary rounded-full px-10 py-5 ${className}`}
+      >
+        <span className="text-primary-regular font-semibold text-xl">
+          {label}
+        </span>
+      </button>
+    </PresenceAnimation>
   );
 }

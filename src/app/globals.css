@@ -8,6 +8,18 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 @font-face {
   font-family: "LTSaeada-Black";
   src: url("/fonts/LTSaeada-Black.woff2") format("woff2");

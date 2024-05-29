@@ -1,5 +1,6 @@
 import Buttons from "./Buttons";
 import Image from "next/image";
+import PresenceAnimation from "./PresenceAnimation";
 import React from "react";
 
 type Props = {};
@@ -11,7 +12,7 @@ export default function HeroSections({}: Props) {
     "Agile, user-friendly software built for utilities, contractors and local governments";
   return (
     <section
-      className=" py-[100px] bg-gradient-to-tl from-primary to-primary-light relative overflow-hidden"
+      className=" py-[100px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden"
       style={{
         borderBottomLeftRadius: "50px",
         borderBottomRightRadius: "50px",
@@ -20,15 +21,19 @@ export default function HeroSections({}: Props) {
       <div className="h-10" />
       <div className="  container mx-auto relative z-20 flex">
         <div className="md:w-1/2 w-full px-[25px] flex flex-col gap-10 items-start">
-          <h3 className=" text-wrap font-black text-8xl text-white leading-none">
-            Let Us Chopped Down Your Renovation Worries
-          </h3>
-          <p className="font-light text-slate-950 text-3xl leading-normal">
-            Find top contractors who work as hard as a{" "}
-            <span className="text-secondary">beaver</span> to bring your vision
-            to life.
-          </p>
-          <Buttons label="Book a Demo" />
+          <PresenceAnimation>
+            <h3 className=" text-wrap font-black text-8xl text-white leading-none">
+              Let Us Chopped Down Your Renovation Worries
+            </h3>
+          </PresenceAnimation>
+          <PresenceAnimation delay={0.2}>
+            <p className="font-light text-slate-950 text-3xl leading-normal">
+              Find top contractors who work as hard as a{" "}
+              <span className="text-secondary">beaver</span> to bring your
+              vision to life.
+            </p>
+          </PresenceAnimation>
+          <Buttons label="Get Started" />
         </div>
         <div className="md:w-1/2 w-full px-5 flex items-end justify-center relative">
           <Image

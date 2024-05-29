@@ -127,12 +127,12 @@ function Header() {
             </Link>
           ))}
 
-          <div className="bg-primary rounded-full">
+          <div className="bg-primary-regular rounded-full">
             <Link
               href={leftMenu[4].url}
               className=""
             >
-              <p className={`  px-6 py-3 rounded-full text-sm text-secondary `}>
+              <p className={`  px-6 py-3 rounded-full text-lg text-secondary `}>
                 Create A Project
               </p>
             </Link>
