@@ -19,7 +19,7 @@ export default function FeaturesSection({}: Props) {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section className="relative flex flex-col items-center">
+    <section className="relative flex flex-col items-center container mx-auto">
       <div
         ref={ref}
         className="flex w-5/6 relative z-20 overflow-y-scroll no-scrollbar"
@@ -80,7 +80,7 @@ export default function FeaturesSection({}: Props) {
         <div className="z-20 absolute inset-0 h-full w-full bg-gradient-to-b from-primary-dark via-transparent to-transparent" />
       </div>
 
-      <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" />
+      {/* <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" /> */}
     </section>
   );
 }

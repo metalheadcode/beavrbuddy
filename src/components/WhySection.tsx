@@ -1,6 +1,5 @@
-import Image from "next/image";
+import Platform from "./Platform";
 import React from "react";
-import { TitleAndDesc } from "./TitleAndDesc";
 
 type Props = {};
 
@@ -8,7 +7,8 @@ export default function WhySection({}: Props) {
   return (
     <section className="container mx-auto py-20">
       <div className="flex flex-wrap items-center">
-        <div className="w-full md:w-1/2 px-5 ">
+        <Platform />
+        {/* <div className="w-full md:w-1/2 px-5 ">
           <Image
             alt="general-worker"
             src={"/images/general-worker-construction.jpg"}
@@ -19,7 +19,7 @@ export default function WhySection({}: Props) {
         </div>
         <div className="w-full md:w-1/2 px-5">
           <TitleAndDesc title="How Fieldman streamlines work management?" />
-        </div>
+        </div> */}
       </div>
     </section>
   );
