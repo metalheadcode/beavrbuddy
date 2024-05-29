@@ -47,7 +47,7 @@ export default function FeaturesSection({}: Props) {
               activeTab === index
                 ? "bg-primary-dark"
                 : "bg-gradient-to-t from-primary-regular to-primary-light overflow-hidden"
-            } relative w-full py-3 px-7 rounded-t-full flex justify-center items-center `}
+            } relative max-w-[200px] py-3 px-7 rounded-t-full flex justify-center items-center `}
           >
             {/* <div className="absolute left-0 right-0 z-50 bg-gradient-to-b from-black/10 via-transparent to-transparent w-full h-full" /> */}
             <p className=" text-center text-white  xl:text-xl lg:text-lg md:text-md sm:text-sm text-xs font-semibold tracking-wide truncate">
@@ -73,13 +73,13 @@ export default function FeaturesSection({}: Props) {
           src={`/images/bg-pattern-hero.png`}
           width={1920}
           height={1080}
-          className="absolute inset-0 z-10 h-auto w-full object-contain"
+          className="absolute top-0 bottom-0 right-0 z-10 h-full w-full object-contain"
         />
         <div className="z-20 absolute inset-0 h-full w-full bg-gradient-to-r from-primary-dark to-transparent" />
         <div className="z-20 absolute inset-0 h-full w-full bg-gradient-to-b from-primary-dark via-transparent to-transparent" />
       </div>
 
-      {/* <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" /> */}
+      <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" />
     </section>
   );
 }

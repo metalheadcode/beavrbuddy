@@ -19,7 +19,9 @@ export default function Buttons({
       <button
         onClick={onClick}
         className={`w-full ${
-          design === "primary" ? "bg-secondary" : "bg-primary-regular"
+          design === "primary"
+            ? "bg-gradient-to-tr from-secondary-dark to-secondary"
+            : "bg-gradient-to-tr from-primary-regular to-primary-light"
         } rounded-full px-10 py-5 ${className}`}
       >
         <span
