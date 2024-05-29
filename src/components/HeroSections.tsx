@@ -14,8 +14,8 @@ export default function HeroSections({}: Props) {
     <section
       className=" py-[100px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden"
       style={{
-        borderBottomLeftRadius: "50px",
-        borderBottomRightRadius: "50px",
+        borderBottomLeftRadius: "60px",
+        borderBottomRightRadius: "60px",
       }}
     >
       <div className="h-10" />

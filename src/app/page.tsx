@@ -1,3 +1,4 @@
+import CTASection from "@/components/CTASection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import HeroSections from "@/components/HeroSections";
@@ -13,6 +14,7 @@ export default function Home() {
       <FeaturesSection />
       <TestimonialSection />
       <CaseStudiesSection />
+      <CTASection />
     </>
   );
 }

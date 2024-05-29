@@ -5,20 +5,28 @@ type Props = {
   onClick?: (event: any) => void;
   label: string;
   className?: string;
+  design?: "primary" | "secondary";
 };
 
 export default function Buttons({
   onClick,
   label = "Button Label",
   className,
+  design = "primary",
 }: Props) {
   return (
     <PresenceAnimation>
       <button
         onClick={onClick}
-        className={`w-full bg-secondary rounded-full px-10 py-5 ${className}`}
+        className={`w-full ${
+          design === "primary" ? "bg-secondary" : "bg-primary-regular"
+        } rounded-full px-10 py-5 ${className}`}
       >
-        <span className="text-primary-regular font-semibold text-xl">
+        <span
+          className={`${
+            design === "primary" ? "text-primary-regular" : "text-secondary"
+          } font-semibold text-xl`}
+        >
           {label}
         </span>
       </button>

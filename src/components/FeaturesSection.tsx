@@ -58,16 +58,16 @@ export default function FeaturesSection({}: Props) {
       </div>
       <div
         className="w-full py-10 bg-gradient-to-t from-primary-regular to-primary-dark relative z-20 overflow-hidden"
-        style={{ borderRadius: "65px" }}
+        style={{ borderRadius: "60px" }}
       >
         <div className="relative z-30 px-5">
           {activeTab === 0 && <TabOne />}
           {activeTab === 1 && <TabTwo />}
           {activeTab === 2 && <TabThree />}
-          <div className="container mx-auto px-5 flex flex-col md:items-start items-full w-full">
+          <div className="container mx-auto px-5 flex flex-col lg:items-start md:items-center items-full w-full">
             <Buttons
               label="Book a Demo"
-              className="mt-5"
+              className="mt-10"
             />
           </div>
         </div>
@@ -100,7 +100,7 @@ const TabOne = () => {
       <div className="w-full h-full md:mt-0 mt-5 border-white md:w-1/2 px-5 ">
         <Image
           alt="general-worker"
-          src={"/images/general-worker-construction.jpg"}
+          src={"/images/consultation.jpg"}
           width={1920}
           height={1080}
           className="w-auto h-auto object-contain rounded-3xl"
@@ -122,7 +122,7 @@ const TabTwo = () => {
       <div className="w-full h-full md:mt-0 mt-5 border-white md:w-1/2 px-5">
         <Image
           alt="general-worker"
-          src={"/images/general-worker-construction.jpg"}
+          src={"/images/bill.jpg"}
           width={1920}
           height={1080}
           className="w-auto h-auto object-contain rounded-3xl"
