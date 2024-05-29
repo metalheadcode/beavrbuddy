@@ -30,7 +30,7 @@ export default function Footer({}: Props) {
           <div className="flex gap-3">
             <Link
               target="_blank"
-              href="#"
+              href="https://www.instagram.com/beavrbuddy/"
             >
               <FaInstagram
                 className="text-secondary"
@@ -39,7 +39,7 @@ export default function Footer({}: Props) {
             </Link>
             <Link
               target="_blank"
-              href="#"
+              href="https://www.linkedin.com/company/beavrbuddy/"
             >
               <FaLinkedinIn
                 className="text-secondary"
