@@ -177,11 +177,11 @@ const Card = ({
         <FaLocationPin />
         <p>{location}</p>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 overflow-hidden">
         {tags.map((tag, index) => (
           <p
             key={index}
-            className="px-5 py-2 bg-secondary rounded-full"
+            className="px-5 py-2 bg-secondary rounded-full truncate"
           >
             {tag}
           </p>
@@ -286,7 +286,7 @@ const Filter = () => {
 
 export default function Platform({}: Props) {
   return (
-    <div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full max-h-[50vw]">
+    <div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar">
       <SideBar />
       <div className="flex-1">
         <Header />
