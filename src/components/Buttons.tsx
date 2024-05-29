@@ -14,9 +14,9 @@ export default function Buttons({
   return (
     <button
       onClick={onClick}
-      className={`bg-primary rounded-full px-7 py-3 ${className}`}
+      className={`bg-secondary rounded-full px-10 py-5 ${className}`}
     >
-      <span className="text-slate-100 ">{label}</span>
+      <span className="text-primary font-semibold text-xl">{label}</span>
     </button>
   );
 }

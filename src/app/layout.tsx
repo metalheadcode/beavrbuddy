@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Poppins } from "next/font/google";
 
-const inter = Poppins({
-  weight: ["300", "400", "500", "600"],
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Header />
         <main>{children}</main>
         <Footer />

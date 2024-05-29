@@ -1,13 +1,13 @@
 "use client";
 
 import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { FullLogo, Logo } from "./Svgs";
 import React, { useEffect, useState } from "react";
-import { RiFacebookCircleFill, RiLinkedinBoxFill } from "react-icons/ri";
 
 import { BiChevronDown } from "react-icons/bi";
 // import Buttons from "./Buttons";
 import Link from "next/link";
-import { Logo } from "./Svgs";
+import { Poppins } from "next/font/google";
 import { usePathname } from "next/navigation";
 
 type ToggleProps = {
@@ -62,11 +62,11 @@ function MenuToggle({ toggle }: ToggleProps) {
 
 function Header() {
   const leftMenu = [
-    { id: 1, label: "Solutions", url: "/" },
-    { id: 2, label: "Built For", url: "/built-for" },
-    { id: 3, label: "Resources", url: "/resources" },
-    { id: 4, label: "About", url: "/about" },
-    { id: 5, label: "Book a Demo", url: "/book-for-demo" },
+    { id: 1, label: "Home", url: "/" },
+    { id: 2, label: "About", url: "/built-for" },
+    { id: 3, label: "How It Works", url: "/resources" },
+    { id: 4, label: "Services", url: "/about" },
+    { id: 5, label: "Become A Beavr", url: "/book-for-demo" },
   ];
 
   const [isMobileHeader, setIsMobileHeader] = useState(false);
@@ -101,62 +101,41 @@ function Header() {
 
   if (!isMobileHeader) {
     return (
-      <div className="fixed z-50 top-0 left-0 right-0 px-6 py-6 ">
-        <div className=" w-full flex justify-between items-center">
-          <div className="">
+      <div className="fixed z-50 top-0 left-0 right-0 m-3 flex flex-col items-center">
+        <div className="bg-slate-100 rounded-full flex justify-center items-center px-3 py-2">
+          <div className="mx-3">
             <Link href="/">
-              <Logo
+              <FullLogo
                 className="text-white"
-                height={50}
-                width={70}
+                height={40}
+                width={180}
+                fill="#5456D1"
               />
             </Link>
           </div>
-          <div className="bg-slate-100 rounded-full">
-            <ul className="flex space-x-4">
-              {leftMenu.slice(0, 4).map((menu) => (
-                <li
-                  key={menu.id}
-                  className="m-2 "
-                >
-                  <Link
-                    href={menu.url}
-                    className=""
-                  >
-                    <p
-                      className={`hover:bg-slate-950 hover:text-slate-100 px-6 py-3 rounded-full  text-sm text-slate-900 `}
-                    >
-                      {menu.label}
-                    </p>
-                  </Link>
-                </li>
-              ))}
+          {leftMenu.map((menu) => (
+            <Link
+              key={menu.id}
+              href={menu.url}
+              className=""
+            >
+              <p
+                className={`hover:bg-slate-950 hover:text-slate-100 px-6 py-3 rounded-full font-medium text-lg text-slate-500 `}
+              >
+                {menu.label}
+              </p>
+            </Link>
+          ))}
 
-              <li className="bg-primary p-2 rounded-r-full relative">
-                <div className="bg-slate-100 absolute top-0 bottom-0 -left-[23%] h-full w-[60px] rounded-full" />
-                <Link
-                  href={leftMenu[4].url}
-                  className=""
-                >
-                  <p
-                    className={`hover:bg-slate-950 hover:text-slate-100  px-6 py-3 rounded-full  text-sm text-slate-100 `}
-                  >
-                    {leftMenu[4].label}
-                  </p>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="flex gap-5">
-            <RiFacebookCircleFill
-              className="text-slate-900"
-              size={35}
-            />
-            <RiLinkedinBoxFill
-              className="text-slate-900"
-              size={35}
-            />
+          <div className="bg-primary rounded-full">
+            <Link
+              href={leftMenu[4].url}
+              className=""
+            >
+              <p className={`  px-6 py-3 rounded-full text-sm text-secondary `}>
+                Create A Project
+              </p>
+            </Link>
           </div>
         </div>
       </div>
@@ -218,7 +197,7 @@ function Header() {
                       href={menu.url}
                       className="flex items-center justify-between"
                     >
-                      <p className=" text-center mr-2 text-white">
+                      <p className="font-bold text-center mr-2 text-white">
                         {menu.label}
                       </p>
                       <BiChevronDown
