@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaLocationPin } from "react-icons/fa6";
 import Image from "next/image";
+import PresenceAnimation from "./PresenceAnimation";
 
 type Props = {};
 
@@ -107,7 +108,7 @@ const menus = [
 const SideBar = () => {
   const [active, setActive] = useState(0);
   return (
-    <div className="bg-white rounded-2xl min-w-[300px] flex flex-col justify-between">
+    <div className="bg-white rounded-2xl min-w-[300px] h-full flex flex-col justify-between">
       <div className="p-5 flex items-center justify-center">
         <FullLogo
           width={200}
@@ -286,24 +287,32 @@ const Filter = () => {
 
 export default function Platform({}: Props) {
   return (
-    <div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar">
-      <SideBar />
+    <div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar shadow-inner">
+      <PresenceAnimation>
+        <SideBar />
+      </PresenceAnimation>
       <div className="flex-1">
-        <Header />
+        <PresenceAnimation delay={0.2}>
+          <Header />
+        </PresenceAnimation>
         <div className="flex gap-3 mt-3 ">
-          <div className=" flex flex-col gap-3 max-h-[600px] overflow-y-scroll  no-scrollbar">
-            {list.map((item, index) => (
-              <Card
-                key={index}
-                {...item}
-              />
-            ))}
-            <div className="h-3" />
-          </div>
-          <div className="min-w-[300px] max-h-[600px] overflow-y-scroll  no-scrollbar">
-            <Filter />
-            <div className="h-3" />
-          </div>
+          <PresenceAnimation delay={0.3}>
+            <div className=" flex flex-col gap-3 max-h-[600px] overflow-y-scroll  no-scrollbar">
+              {list.map((item, index) => (
+                <Card
+                  key={index}
+                  {...item}
+                />
+              ))}
+              <div className="h-3" />
+            </div>
+          </PresenceAnimation>
+          <PresenceAnimation delay={0.4}>
+            <div className="min-w-[300px] max-h-[600px] overflow-y-scroll  no-scrollbar">
+              <Filter />
+              <div className="h-3" />
+            </div>
+          </PresenceAnimation>
         </div>
       </div>
     </div>
