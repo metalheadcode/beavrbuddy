@@ -1,8 +1,8 @@
 import CTASection from "@/components/CTASection";
-import CaseStudiesSection from "@/components/CaseStudiesSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import HeroSections from "@/components/HeroSections";
 import { Metadata } from "next";
+import PartnershipSection from "@/components/PartneshipSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import WhySection from "@/components/WhySection";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <WhySection />
       <FeaturesSection />
       <TestimonialSection />
-      <CaseStudiesSection />
+      <PartnershipSection />
       <CTASection />
     </>
   );

@@ -5,9 +5,7 @@ import { FullLogo, Logo } from "./Svgs";
 import React, { useEffect, useState } from "react";
 
 import { BiChevronDown } from "react-icons/bi";
-// import Buttons from "./Buttons";
 import Link from "next/link";
-import { Poppins } from "next/font/google";
 import { usePathname } from "next/navigation";
 
 type ToggleProps = {
@@ -63,9 +61,9 @@ function MenuToggle({ toggle }: ToggleProps) {
 function Header() {
   const leftMenu = [
     { id: 1, label: "Home", url: "/" },
-    { id: 2, label: "About", url: "/built-for" },
-    { id: 3, label: "How It Works", url: "/resources" },
-    { id: 4, label: "Services", url: "/about" },
+    { id: 2, label: "About", url: "/about" },
+    { id: 3, label: "How It Works", url: "/how-it-works" },
+    { id: 4, label: "Services", url: "/services" },
     { id: 5, label: "Become A Beavr", url: "/book-for-demo" },
   ];
 

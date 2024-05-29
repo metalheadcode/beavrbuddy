@@ -6,10 +6,6 @@ import React from "react";
 type Props = {};
 
 export default function HeroSections({}: Props) {
-  const titleStrong = "Manage Fieldwork ";
-  const titleLight = "& All Infrastructure Assets";
-  const desc =
-    "Agile, user-friendly software built for utilities, contractors and local governments";
   return (
     <section
       className=" py-[100px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden"
