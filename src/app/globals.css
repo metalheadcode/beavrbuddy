@@ -8,22 +8,56 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "LTSaeada-Black";
+  src: url("/fonts/LTSaeada-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LTSaeada-Bold";
+  src: url("/fonts/LTSaeada-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "LTSaeada-SemiBold";
+  src: url("/fonts/LTSaeada-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "LTSaeada-Regular";
+  src: url("/fonts/LTSaeada-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "LTSaeada-Light";
+  src: url("/fonts/LTSaeada-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "LTSaeada-Thin";
+  src: url("/fonts/LTSaeada-Thin.woff2") format("woff2");
+}
+
+.LTSaeadaBlack {
+  font-family: "LTSaeada-Black";
+}
+.LTSaeadaBold {
+  font-family: "LTSaeada-Bold";
+}
+.LTSaeadaSemiBold {
+  font-family: "LTSaeada-SemiBold";
+}
+.LTSaeadaRegular {
+  font-family: "LTSaeada-Regular";
+}
+.LTSaeadaLight {
+  font-family: "LTSaeada-Thin";
+}
+.LTSaeadaThin {
+  font-family: "LTSaeada-Thin";
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
 }
 
 @layer utilities {
