@@ -22,24 +22,24 @@ export default function FeaturesSection({}: Props) {
     <section className="relative flex flex-col items-center">
       <div
         ref={ref}
-        className="flex w-3/4 relative z-20 overflow-y-scroll no-scrollbar rounded-t-full"
+        className="flex w-5/6 relative z-20 overflow-y-scroll no-scrollbar"
       >
         {tabsTitles.map((tab, index) => (
           <div
             onClick={() => {
               // UNCOMMENT BELOW BLOCK IF THEY WANT SCROLL FEATURES
-              // const width = ref.current?.scrollWidth;
-              // if (ref.current !== null) {
-              //   if (index === 0) {
-              //     ref.current.scrollLeft = 0;
-              //   }
-              //   if (index === 1) {
-              //     ref.current.scrollLeft = Number(width) / 4;
-              //   }
-              //   if (index === 2) {
-              //     ref.current.scrollLeft = Number(width);
-              //   }
-              // }
+              const width = ref.current?.scrollWidth;
+              if (ref.current !== null) {
+                if (index === 0) {
+                  ref.current.scrollLeft = 0;
+                }
+                if (index === 1) {
+                  ref.current.scrollLeft = Number(width) / 4;
+                }
+                if (index === 2) {
+                  ref.current.scrollLeft = Number(width);
+                }
+              }
               setActiveTab(index);
             }}
             key={index}
@@ -56,10 +56,7 @@ export default function FeaturesSection({}: Props) {
           </div>
         ))}
       </div>
-      <div
-        className="w-full py-10 bg-gradient-to-t from-primary-regular to-primary-dark relative z-20 overflow-hidden"
-        style={{ borderRadius: "60px" }}
-      >
+      <div className="w-full py-10 bg-gradient-to-t from-primary-regular to-primary-dark relative z-20 overflow-hidden md:rounded-4xl rounded-3xl">
         <div className="relative z-30 px-5">
           {activeTab === 0 && <TabOne />}
           {activeTab === 1 && <TabTwo />}
@@ -82,7 +79,7 @@ export default function FeaturesSection({}: Props) {
         <div className="z-20 absolute inset-0 h-full w-full bg-gradient-to-b from-primary-dark via-transparent to-transparent" />
       </div>
 
-      <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" />
+      {/* <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" /> */}
     </section>
   );
 }

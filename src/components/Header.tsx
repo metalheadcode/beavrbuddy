@@ -70,20 +70,10 @@ function Header() {
   const [isMobileHeader, setIsMobileHeader] = useState(false);
 
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const pathname = usePathname();
-  const handleButtonClick = (event: any) => {
-    // Prevent default button behavior
-    event.preventDefault();
-    // Open a new tab with the desired URL
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSezuJQsCim3cle0hqLS8wHvRDaXjd8Bz-lxmfVotRkbUFgMCg/viewform?usp=sf_link",
-      "_blank"
-    );
-  };
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth < 861) {
+      if (window.innerWidth < 984) {
         setIsMobileHeader(true);
       } else {
         setIsMobileHeader(false);
@@ -100,7 +90,7 @@ function Header() {
   if (!isMobileHeader) {
     return (
       <div className="fixed z-50 top-0 left-0 right-0 m-3 flex flex-col items-center">
-        <div className="bg-slate-100 rounded-full flex justify-center items-center px-3 py-2">
+        <div className="bg-slate-100 rounded-full flex justify-center items-center p-2">
           <div className="mx-3">
             <Link href="/">
               <FullLogo
@@ -112,17 +102,21 @@ function Header() {
             </Link>
           </div>
           {leftMenu.map((menu) => (
-            <Link
+            <div
               key={menu.id}
-              href={menu.url}
-              className=""
+              className="overflow-hidden"
             >
-              <p
-                className={`hover:bg-slate-950 hover:text-slate-100 px-6 py-3 rounded-full font-medium text-lg text-slate-500 `}
+              <Link
+                href={menu.url}
+                className=""
               >
-                {menu.label}
-              </p>
-            </Link>
+                <p
+                  className={`hover:bg-slate-950 hover:text-slate-100 px-6 py-3 rounded-full font-medium lg:text-md md:text-sm text-sm text-slate-500 truncate`}
+                >
+                  {menu.label}
+                </p>
+              </Link>
+            </div>
           ))}
 
           <div className="bg-primary-regular rounded-full">
@@ -130,7 +124,9 @@ function Header() {
               href={leftMenu[4].url}
               className=""
             >
-              <p className={`  px-6 py-3 rounded-full text-lg text-secondary `}>
+              <p
+                className={`px-6 py-3 rounded-full lg:text-md md:text-sm text-sm text-secondary truncate`}
+              >
                 Create A Project
               </p>
             </Link>
@@ -143,18 +139,19 @@ function Header() {
   if (isMobileHeader) {
     return (
       <div className="relative">
-        <div className="fixed z-50 top-0 left-0 right-0 container mx-auto px-5">
-          <div className=" w-full flex justify-between items-center">
+        <div className="fixed z-50 m-3 top-0 left-0 right-0 container mx-auto px-5">
+          {/* --- NAVBAR --- */}
+          <div className="bg-gradient-to-t from-white p-3 rounded-3xl to-slate-100 w-full flex justify-between items-center shadow-lg">
             <Link href="/">
-              <Logo
-                width={50}
-                height={80}
+              <FullLogo
+                className="text-white"
+                height={40}
+                width={180}
+                fill="#5456D1"
               />
             </Link>
             <motion.nav
-              className={`px-3 py-1 rounded-xl ${
-                isOpen ? "bg-transparent" : "bg-white"
-              }`}
+              className={`px-3 py-1 bg-transparent`}
               initial={false}
               animate={isOpen ? "open" : "closed"}
             >

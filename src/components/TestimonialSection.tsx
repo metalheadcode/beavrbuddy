@@ -7,13 +7,7 @@ type Props = {};
 
 export default function TestimonialSection({}: Props) {
   return (
-    <section
-      className="relative bg-gradient-to-r from-secondary-dark to-secondary"
-      style={{
-        borderBottomLeftRadius: "60px",
-        borderBottomRightRadius: "60px",
-      }}
-    >
+    <section className="relative bg-gradient-to-r from-secondary-dark to-secondary rounded-b-4xl">
       <div className="flex items-center container mx-auto py-20">
         <div className="w-full px-5 flex flex-col items-center">
           <PresenceAnimation>

@@ -10,13 +10,7 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <footer
-      className="bg-slate-950 relative z-20 p-5"
-      style={{
-        borderTopLeftRadius: "60px",
-        borderTopRightRadius: "60px",
-      }}
-    >
+    <footer className="bg-slate-950 relative z-20 p-5 rounded-t-4xl">
       <div className="container mx-auto flex justify-between pt-10 pb-5">
         <div className="md:w-1/3 w-full  border-white flex flex-col items-start">
           <FullLogoWhite

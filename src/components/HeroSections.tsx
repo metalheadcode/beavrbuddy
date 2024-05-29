@@ -7,23 +7,17 @@ type Props = {};
 
 export default function HeroSections({}: Props) {
   return (
-    <section
-      className=" py-[100px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden"
-      style={{
-        borderBottomLeftRadius: "60px",
-        borderBottomRightRadius: "60px",
-      }}
-    >
+    <section className=" pt-[100px] pb-[30px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden rounded-b-4xl">
       <div className="h-10" />
       <div className="  container mx-auto relative z-20 flex">
         <div className="md:w-1/2 w-full px-[25px] flex flex-col gap-10 items-start">
           <PresenceAnimation>
-            <h3 className=" text-wrap font-black text-8xl text-white leading-none">
+            <h3 className=" text-wrap font-black md:text-8xl text-5xl text-white leading-tight">
               Let Us Chopped Down Your Renovation Worries
             </h3>
           </PresenceAnimation>
           <PresenceAnimation delay={0.2}>
-            <p className="font-light text-slate-950 text-3xl leading-normal">
+            <p className="font-light text-slate-950 md:text-3xl text-xl leading-normal">
               Find top contractors who work as hard as a{" "}
               <span className="text-secondary">beaver</span> to bring your
               vision to life.
@@ -44,6 +38,7 @@ export default function HeroSections({}: Props) {
 
       <Image
         alt="bg-pattern"
+        priority
         src={"/images/bg-pattern-hero.png"}
         width={1616}
         height={1015}
