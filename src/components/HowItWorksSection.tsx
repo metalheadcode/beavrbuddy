@@ -68,13 +68,6 @@ export default function HowItWorksSection({}: Props) {
               </div>
             </PresenceAnimation>
           ))}
-          {/* <PresenceAnimation>
-            <div className=" bg-white/30 h-full xl:hidden lg:flex md:flex sm:flex hidden justify-center items-center rounded-3xl overflow-hidden w-full p-4 ">
-              <h3 className="text-black text-2xl text-center font-semibold mb-3">
-                {`That's It!`}
-              </h3>
-            </div>
-          </PresenceAnimation> */}
         </div>
       </div>
     </section>

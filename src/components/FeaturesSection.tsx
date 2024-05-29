@@ -69,6 +69,7 @@ export default function FeaturesSection({}: Props) {
           </div>
         </div>
         <Image
+          priority
           alt="pattern-faetures-deck"
           src={`/images/bg-pattern-hero.png`}
           width={1920}

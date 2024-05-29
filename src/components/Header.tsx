@@ -6,7 +6,6 @@ import React, { useEffect, useState } from "react";
 
 import { BiChevronDown } from "react-icons/bi";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 type ToggleProps = {
   toggle: any;
@@ -69,7 +68,8 @@ function Header() {
 
   const [isMobileHeader, setIsMobileHeader] = useState(false);
 
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  // const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     function handleResize() {
@@ -141,7 +141,7 @@ function Header() {
       <div className="relative">
         <div className="fixed z-50 m-3 top-0 left-0 right-0 container mx-auto px-5">
           {/* --- NAVBAR --- */}
-          <div className="bg-gradient-to-t from-white p-3 rounded-3xl to-slate-100 w-full flex justify-between items-center shadow-lg">
+          <div className="relative z-30 bg-gradient-to-t from-white p-3 rounded-3xl to-slate-100 w-full flex justify-between items-center shadow-lg">
             <Link href="/">
               <FullLogo
                 className="text-white"
@@ -151,11 +151,15 @@ function Header() {
               />
             </Link>
             <motion.nav
-              className={`px-3 py-1 bg-transparent`}
+              className={`px-3 py-2 `}
               initial={false}
               animate={isOpen ? "open" : "closed"}
             >
-              <MenuToggle toggle={toggleOpen} />
+              <MenuToggle
+                toggle={(event: any) => {
+                  setIsOpen(!isOpen);
+                }}
+              />
             </motion.nav>
           </div>
 
@@ -177,10 +181,10 @@ function Header() {
                     ease: "easeOut",
                   },
                 }}
-                className="h-full flex flex-col justify-between"
+                className="px-5 h-full flex flex-col justify-between relative z-10"
               >
                 {leftMenu.map((menu, index) => (
-                  <li
+                  <motion.li
                     key={menu.id}
                     className={`${
                       index !== leftMenu.length - 1
@@ -189,6 +193,7 @@ function Header() {
                     } border-opacity-5`}
                   >
                     <Link
+                      onClick={() => setIsOpen(!isOpen)}
                       href={menu.url}
                       className="flex items-center justify-between"
                     >
@@ -200,7 +205,7 @@ function Header() {
                         size={30}
                       />
                     </Link>
-                  </li>
+                  </motion.li>
                 ))}
                 <div className="mt-5 mx-auto ">
                   {/* <Buttons
@@ -212,18 +217,17 @@ function Header() {
               </motion.ul>
             )}
           </AnimatePresence>
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: "100vh" }}
+                exit={{ height: 0 }}
+                className="z-0 absolute -top-[12px] bottom-0 left-0 right-0 h-screen bg-slate-950 rounded-b-3xl"
+              />
+            )}
+          </AnimatePresence>
         </div>
-
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0 }}
-              animate={{ height: "100vh" }}
-              exit={{ height: 0 }}
-              className="z-40 absolute h-screen bg-slate-950 top-0 left-0 right-0"
-            />
-          )}
-        </AnimatePresence>
       </div>
     );
   }
