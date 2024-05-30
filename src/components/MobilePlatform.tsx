@@ -85,15 +85,6 @@ export default function MobilePlatform({ scrollYProgress }: Props) {
               value={el.value}
             />
           ))}
-          {/* <LabelAndInputFake
-          label="Budget"
-          value="100,000"
-        />
-        <LabelAndInputFake
-          label="Types"
-          value="House Renovation"
-        /> */}
-
           <button className="bg-secondary px-5 py-3 w-full rounded-full mt-5">
             Submit
           </button>

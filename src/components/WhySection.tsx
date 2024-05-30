@@ -33,20 +33,24 @@ export default function WhySection({}: Props) {
 
   return (
     <section
-      className="relative container mx-auto py-20 h-[3000px]"
+      className="relative container mx-auto h-[3000px] my-10 py-20"
       ref={ref}
     >
-      <div className="sticky top-20 left-0 right-0 flex flex-col justify-center items-center h-screen">
-        {/* <div className="absolute top-0 left-0 right-0 w-full">
-          <motion.div
-            className=" origin-left mt-10 rounded-xl h-[5px] bg-gradient-to-r from-secondary-dark to-secondary"
-            style={{ width }}
-          />
-        </div> */}
+      <div className="sticky top-10 left-0 right-0 flex flex-col justify-center items-center h-screen">
         {mobile ? (
-          <MobilePlatform scrollYProgress={scrollYProgress} />
+          <div className="py-10">
+            <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5">
+              User Platform
+            </h3>
+            <MobilePlatform scrollYProgress={scrollYProgress} />
+          </div>
         ) : (
-          <Platform scrollYProgress={scrollYProgress} />
+          <div className="py-10">
+            <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5">
+              Contractor Platform
+            </h3>
+            <Platform scrollYProgress={scrollYProgress} />
+          </div>
         )}
       </div>
     </section>
