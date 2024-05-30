@@ -19,7 +19,7 @@ export default function TextArea({
       <textarea
         rows={3}
         placeholder={placeholder}
-        className="outline-none mt-3 border-2 border-primary-dark w-full px-3 py-2 rounded-xl"
+        className="outline-none mt-3 border border-white w-full px-3 py-2 rounded-xl"
         value={value}
         onChange={onChange}
       />

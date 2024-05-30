@@ -68,6 +68,7 @@ export default function FormModal({ isOpen = false, setIsOpen }: Props) {
                   setName(e.target.value);
                 }}
                 value={name}
+                placeholder="eg. John Doe"
               />
               <Input
                 label="Your Email"
@@ -75,13 +76,15 @@ export default function FormModal({ isOpen = false, setIsOpen }: Props) {
                   setEmail(e.target.value);
                 }}
                 value={email}
+                placeholder="eg. john.doe@gmail.com"
               />
               <Input
-                label="Company Name (Leave Blank If You're An Individual)"
+                label="Company Name "
                 onChange={(e) => {
                   setCompany(e.target.value);
                 }}
                 value={company}
+                placeholder="Leave Blank If You're An Individual"
               />
               <Input
                 label="Subject"
@@ -89,6 +92,7 @@ export default function FormModal({ isOpen = false, setIsOpen }: Props) {
                   setSubject(e.target.value);
                 }}
                 value={subject}
+                placeholder="eg. Renovation Enquire"
               />
             </div>
 
@@ -98,6 +102,7 @@ export default function FormModal({ isOpen = false, setIsOpen }: Props) {
                 setMessage(e.target.value);
               }}
               value={message}
+              placeholder="eg. Your messsage"
             />
             <div className="w-full mt-3 flex justify-center">
               <button

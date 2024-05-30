@@ -67,11 +67,11 @@ export default function MobilePlatform({ scrollYProgress }: Props) {
   });
   return (
     <motion.div
-      className="border border-slate-400 p-2"
-      style={{ borderRadius: "50px" }}
+      className="border-t border-l border-r border-slate-400 pl-2 pr-2 pt-2"
+      style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }}
     >
       <div
-        style={{ borderRadius: "45px" }}
+        style={{ borderTopRightRadius: "45px", borderTopLeftRadius: "45px" }}
         className="min-h-[500px] px-3 py-8 bg-slate-100 overflow-y-scroll no-scrollbar relative"
       >
         <div className="absolute top-0 left-0 right-0 w-full  flex justify-center">

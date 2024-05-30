@@ -8,10 +8,16 @@ import {
   useMotionValueEvent,
   useTransform,
 } from "framer-motion";
+import { BiMoney, BiShare } from "react-icons/bi";
 import { FullLogo, Logo } from "./Svgs";
+import {
+  IoAddOutline,
+  IoCopyOutline,
+  IoShareOutline,
+  IoShareSharp,
+} from "react-icons/io5";
 import React, { useEffect, useRef, useState } from "react";
 
-import { BiMoney } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { FaInbox } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
@@ -20,6 +26,7 @@ import { GoProject } from "react-icons/go";
 import { GrFormAttachment } from "react-icons/gr";
 import Image from "next/image";
 import PresenceAnimation from "./PresenceAnimation";
+import { SlShare } from "react-icons/sl";
 
 type Props = {
   scrollYProgress: MotionValue;
@@ -131,15 +138,15 @@ const SideBar = ({ openSideBar }: { openSideBar: boolean }) => {
   return (
     <div
       className={`relative bg-white rounded-2xl ${
-        openSideBar ? "min-w-[300px]" : ""
-      } h-full  flex flex-col justify-between`}
+        openSideBar ? "min-w-[230px]" : ""
+      } h-full  flex flex-col justify-between py-3`}
     >
       {openSideBar ? (
         <>
-          <div className="p-5 flex items-center justify-center">
+          <div className="p-3 flex items-center justify-center">
             <FullLogo
-              width={200}
-              height={100}
+              width={150}
+              height={45}
             />
           </div>
           <div className="">
@@ -147,7 +154,7 @@ const SideBar = ({ openSideBar }: { openSideBar: boolean }) => {
               <div
                 onClick={() => setActive(index)}
                 key={index}
-                className={`relative px-5 py-3 ${
+                className={`relative px-3 py-3 ${
                   index === menus.length - 1 ? "border-y" : "border-t"
                 } ${
                   active === index ? "bg-primary-light/10" : "border-slate-100"
@@ -159,7 +166,7 @@ const SideBar = ({ openSideBar }: { openSideBar: boolean }) => {
                   }`}
                 >
                   {menu.icon}
-                  <p>{menu.name}</p>
+                  <p className="text-sm">{menu.name}</p>
                 </span>
                 {active === index && (
                   <div className="h-full w-[3px] bg-primary-light absolute left-0 top-0 bottom-0" />
@@ -167,19 +174,22 @@ const SideBar = ({ openSideBar }: { openSideBar: boolean }) => {
               </div>
             ))}
           </div>
-          <div className="p-5 flex justify-between items-center w-full">
+          <div className="px-3 flex items-center w-full justify-between">
             <Image
               src="/images/platform-client/profile.jpg"
               alt="profile-image"
               width={1000}
               height={1000}
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-7 w-7 rounded-full object-cover"
             />
-            <div>
-              <p className="text-slate-600 text-md">Ibrahim Ahmad</p>
-              <p className="text-slate-400 text-xs">ibrahimahmad@gmail.com</p>
+            <div className="">
+              <p className="text-slate-600 text-xs text-ellipsis font-semibold">
+                Ibrahim Ahmad
+              </p>
+              <p className="text-slate-400 text-xs text-ellipsis">
+                ibrahimahmad@gmail.com
+              </p>
             </div>
-            <BsThreeDots />
           </div>
         </>
       ) : (
@@ -230,12 +240,12 @@ const SideBar = ({ openSideBar }: { openSideBar: boolean }) => {
 };
 const Header = () => {
   return (
-    <div className="w-full p-5 bg-white rounded-2xl">
-      <div className="flex flex-col gap-3">
-        <h3 className="font-semibold text-3xl text-slate-700">
-          Current Active Project ⚡️
+    <div className="w-full p-3 bg-white rounded-2xl">
+      <div className="flex flex-col gap-2">
+        <h3 className="font-semibold text-xl text-slate-700">
+          Active Projects ⚡️
         </h3>
-        <p className="text-slate-400">Last Update : 30 February 2024</p>
+        <p className="text-slate-400 text-xs">Last Update : 30 February 2024</p>
       </div>
     </div>
   );
@@ -254,20 +264,20 @@ const Card = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="p-5 bg-white rounded-2xl flex flex-col gap-3"
+      className="p-3 bg-white rounded-2xl flex flex-col gap-2"
     >
-      <p className="text-slate-500">{createdAt}</p>
-      <h3 className="font-bold text-xl">{title}</h3>
-      <p className="text-slate-700 text-sm">{desc}</p>
-      <div className="text-slate-500 flex gap-3 items-center">
+      <p className="text-slate-400 text-xs">{createdAt}</p>
+      <h3 className="font-bold text-md">{title}</h3>
+      <p className="text-slate-700 text-xs">{desc}</p>
+      <div className="text-slate-500 flex gap-1 items-center text-xs">
         <FaLocationPin />
         <p>{location}</p>
       </div>
-      <div className="flex flex-wrap gap-2 overflow-hidden">
+      <div className="flex flex-wrap gap-1 overflow-hidden">
         {tags.map((tag, index) => (
           <p
             key={index}
-            className="px-5 py-2 bg-secondary rounded-full truncate"
+            className="px-5 py-2 bg-secondary rounded-full truncate text-xs"
           >
             {tag}
           </p>
@@ -282,10 +292,10 @@ const Filter = () => {
   const [grade, setGrade] = useState<string | null>(null);
 
   return (
-    <div className="p-5 bg-white rounded-2xl flex flex-col gap-3">
+    <div className="p-3 bg-white rounded-2xl flex flex-col gap-3">
       <div className="">
-        <h3 className="font-bold text-xl truncate">Project Type</h3>
-        <select className=" mt-3 border-2 border-slate-200 px-3 py-2 rounded-xl w-full">
+        <h3 className="font-bold text-md truncate">Project Type</h3>
+        <select className="text-xs mt-3 border-2 border-slate-200 px-2 py-2 rounded-lg w-full">
           {[
             {
               value: "Landscaping",
@@ -314,7 +324,7 @@ const Filter = () => {
           ].map((item, index) => (
             <option
               key={index}
-              className="truncate"
+              className="truncate "
             >
               {item.key}
             </option>
@@ -322,7 +332,7 @@ const Filter = () => {
         </select>
       </div>
       <div className="">
-        <h3 className="font-bold text-xl truncate">Location</h3>
+        <h3 className="font-bold text-md truncate">Location</h3>
         {[
           "Selangor",
           "Kuala Lumpur",
@@ -349,20 +359,16 @@ const Filter = () => {
                 }
               }}
             />
-            <p className="text-slate-700 text-md truncate">{state}</p>
+            <p className="text-slate-700 text-xs truncate">{state}</p>
           </div>
         ))}
       </div>
       <div className="">
-        <h3 className="font-bold text-xl truncate">Contractor Grade</h3>
+        <h3 className="font-bold text-md truncate">Contractor Grade</h3>
         {[
-          { name: "A | G7 - More Than RM 10 Mil", value: "A" },
-          { name: "B | G6 - Less Than RM 10 Mil", value: "B" },
-          { name: "C | G5 - Less Than RM 5 Mil", value: "C" },
-          { name: "D | G4 - Less Than RM 3 Mil", value: "D" },
-          { name: "E | G3 - Less Than RM 1 Mil", value: "E" },
-          { name: "F | G2 - Less Than RM 500, 000", value: "F" },
-          { name: "G | G1 - Less Than RM 200, 000", value: "G" },
+          { name: "G3 - Less Than RM 1 Mil", value: "E" },
+          { name: "G2 - Less Than RM 500, 000", value: "F" },
+          { name: "G1 - Less Than RM 200, 000", value: "G" },
         ].map((g, index) => (
           <div
             key={index}
@@ -381,7 +387,7 @@ const Filter = () => {
                 }
               }}
             />
-            <p className="text-slate-700 text-md truncate">{g.name}</p>
+            <p className="text-slate-700 text-xs truncate">{g.name}</p>
           </div>
         ))}
       </div>
@@ -429,48 +435,74 @@ export default function Platform({ scrollYProgress }: Props) {
   }, []);
 
   return (
-    <motion.div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar shadow-inner">
-      <PresenceAnimation>
-        <SideBar openSideBar={!isMobile} />
-      </PresenceAnimation>
-      <div className="flex-1">
-        <PresenceAnimation delay={0.2}>
-          <Header />
+    <div>
+      <div className="bg-gradient-to-t from-stone-900/90 to-stone-800/90 backdrop-blur-xl rounded-t-2xl flex items-center justify-between px-5 py-2">
+        <div className="flex gap-1.5 w-2/6">
+          <div className="h-2.5 w-2.5 bg-red-400 rounded-full" />
+          <div className="h-2.5 w-2.5 bg-lime-400 rounded-full" />
+          <div className="h-2.5 w-2.5 bg-yellow-400 rounded-full" />
+        </div>
+        <div className="w-4/6 h-full p-1  rounded-lg border border-stone-700">
+          <p className="text-stone-500 text-xs text-center">beavrbuddy.com</p>
+        </div>
+        <div className="w-2/6 flex justify-end gap-2">
+          <IoShareOutline
+            className="text-stone-500"
+            size={20}
+          />
+          <IoAddOutline
+            className="text-stone-500"
+            size={20}
+          />
+          <IoCopyOutline
+            className="text-stone-500"
+            size={20}
+          />
+        </div>
+      </div>
+      <div className="bg-slate-100 rounded-b-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar shadow-inner">
+        <PresenceAnimation>
+          <SideBar openSideBar={!isMobile} />
         </PresenceAnimation>
-        <div className="flex gap-3 mt-3 ">
-          {output.length === 0 && (
-            <div className="p-5 rounded-2xl w-full h-full">
-              <p className="text-slate-400 text-center w-full mx-auto">
-                New Request From Client Will Appear Here
-              </p>
-            </div>
-          )}
-          <PresenceAnimation delay={0.3}>
-            <div
-              ref={listOfOrderRef}
-              className="flex flex-col gap-3 max-h-[600px] overflow-y-scroll  no-scrollbar"
-            >
-              <AnimatePresence initial={false}>
-                {output.map((item: ListTypes, index: number) => (
-                  <Card
-                    key={index}
-                    {...item}
-                  />
-                ))}
-              </AnimatePresence>
-              <div className="h-3" />
-            </div>
+        <div className="flex-1">
+          <PresenceAnimation delay={0.2}>
+            <Header />
           </PresenceAnimation>
-          {output.length > 0 && openFilter && (
-            <PresenceAnimation delay={0.4}>
-              <div className="max-h-[600px] overflow-y-scroll  no-scrollbar">
-                <Filter />
+          <div className="flex gap-3 mt-3 ">
+            {output.length === 0 && (
+              <div className="p-5 rounded-2xl w-full h-full">
+                <p className="text-slate-400 text-center w-full mx-auto">
+                  New Request From Client Will Appear Here
+                </p>
+              </div>
+            )}
+            <PresenceAnimation delay={0.3}>
+              <div
+                ref={listOfOrderRef}
+                className="flex flex-col gap-3 max-h-[600px] overflow-y-scroll  no-scrollbar"
+              >
+                <AnimatePresence initial={false}>
+                  {output.map((item: ListTypes, index: number) => (
+                    <Card
+                      key={index}
+                      {...item}
+                    />
+                  ))}
+                </AnimatePresence>
                 <div className="h-3" />
               </div>
             </PresenceAnimation>
-          )}
+            {output.length > 0 && openFilter && (
+              <PresenceAnimation delay={0.4}>
+                <div className="max-h-[600px] overflow-y-scroll  no-scrollbar">
+                  <Filter />
+                  <div className="h-3" />
+                </div>
+              </PresenceAnimation>
+            )}
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

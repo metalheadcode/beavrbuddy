@@ -15,12 +15,10 @@ export default function Input({
 }: Props) {
   return (
     <div className="w-full">
-      <label className="font-semibold text-secondary-dark line-clamp-1">
-        {label}
-      </label>
+      <label className="font-semibold text-secondary-dark ">{label}</label>
       <input
         placeholder={placeholder}
-        className=" outline-none mt-3 border-2 border-primary-dark w-full px-3 py-2 rounded-xl"
+        className=" outline-none mt-3 border border-white w-full px-3 py-2 rounded-xl"
         value={value}
         onChange={onChange}
       />

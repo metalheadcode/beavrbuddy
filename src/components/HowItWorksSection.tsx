@@ -12,40 +12,40 @@ const hiws = [
   },
   {
     imagePath: "/images/how-it-works/book-appointment.png",
-    title: "Register & Submit Your Project",
-    desc: "Register and provide your project details, including location, renovation type, design preferences, budget, and start date.",
+    title: "Book an Appointment",
+    desc: "Schedule a virtual or physical appointment to discuss your project with our experts.",
   },
   {
     imagePath: "/images/how-it-works/bill-quantities.png",
-    title: "Register & Submit Your Project",
-    desc: "Register and provide your project details, including location, renovation type, design preferences, budget, and start date.",
+    title: "We Prepare Your Bill of Quantities (BQ)",
+    desc: "Our team creates a detailed Bill of Quantities (BQ) outlining all materials, labor, and costs.",
   },
   {
     imagePath: "/images/how-it-works/receive-quot.png",
-    title: "Register & Submit Your Project",
-    desc: "Register and provide your project details, including location, renovation type, design preferences, budget, and start date.",
+    title: "Receive Quotations from Contractors",
+    desc: "Vetted contractors review your Bill of Quantities (BQ) and submit competitive quotes.",
   },
   {
     imagePath: "/images/how-it-works/client-review.png",
-    title: "Register & Submit Your Project",
-    desc: "Register and provide your project details, including location, renovation type, design preferences, budget, and start date.",
+    title: "Clients Review and Select",
+    desc: "Review quotes and select the best contractor for your project.",
   },
 ];
 
 export default function HowItWorksSection({}: Props) {
   return (
-    <section className="relative bg-gradient-to-r from-secondary-dark to-secondary rounded-4xl">
+    <section className="relative bg-gradient-to-r from-secondary-dark to-secondary rounded-b-4xl">
       <div className="container mx-auto py-20">
         <h3 className="text-center text-primary-regular font-bold text-4xl">
           How It Works?
         </h3>
-        <div className="mt-20 w-full px-5 grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-3 lg:gap-5 md:gap-3 gap-2 overflow-scroll-x place-items-center">
+        <div className="mt-20 w-full px-5 grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-3 lg:gap-5 md:gap-3 gap-2 overflow-scroll-x place-items-center place-content-stretch">
           {hiws.map((hiw, index) => (
             <PresenceAnimation
               delay={(index + 1) * 0.2}
               key={index}
             >
-              <div className="relative hover:-translate-y-3 hover:shadow-2xl transition-transform bg-gradient-to-tr from-primary-regular to-primary-light rounded-3xl max-w-[300px] p-4 ">
+              <div className="relative hover:-translate-y-3 hover:shadow-2xl transition-transform bg-gradient-to-tr from-primary-regular to-primary-light rounded-3xl max-w-[300px] min-h-[400px] p-4">
                 <Image
                   src={hiw.imagePath}
                   alt="card"

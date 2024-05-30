@@ -39,15 +39,15 @@ export default function WhySection({}: Props) {
       <div className="sticky top-10 left-0 right-0 flex flex-col justify-center items-center h-screen">
         {mobile ? (
           <div className="py-10">
-            <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5">
+            <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5 text-primary-regular">
               User Platform
             </h3>
             <MobilePlatform scrollYProgress={scrollYProgress} />
           </div>
         ) : (
           <div className="py-10">
-            <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5">
-              Contractor Platform
+            <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5 text-primary-regular">
+              Centralize Your Renovation Process
             </h3>
             <Platform scrollYProgress={scrollYProgress} />
           </div>

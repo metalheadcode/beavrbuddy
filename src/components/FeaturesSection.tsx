@@ -19,10 +19,10 @@ export default function FeaturesSection({}: Props) {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section className="relative flex flex-col items-center container mx-auto">
+    <section className="relative flex flex-col items-center ">
       <div
         ref={ref}
-        className="flex w-5/6 relative z-20 overflow-y-scroll no-scrollbar"
+        className="container mx-auto flex w-5/6 relative z-20 overflow-y-scroll no-scrollbar"
       >
         {tabsTitles.map((tab, index) => (
           <div
@@ -49,7 +49,6 @@ export default function FeaturesSection({}: Props) {
                 : "bg-gradient-to-t from-primary-regular to-primary-light overflow-hidden"
             } relative max-w-[200px] py-3 px-7 rounded-t-full flex justify-center items-center `}
           >
-            {/* <div className="absolute left-0 right-0 z-50 bg-gradient-to-b from-black/10 via-transparent to-transparent w-full h-full" /> */}
             <p className=" text-center text-white  xl:text-xl lg:text-lg md:text-md sm:text-sm text-xs font-semibold tracking-wide truncate">
               {tab}
             </p>
@@ -61,12 +60,6 @@ export default function FeaturesSection({}: Props) {
           {activeTab === 0 && <TabOne />}
           {activeTab === 1 && <TabTwo />}
           {activeTab === 2 && <TabThree />}
-          <div className="container mx-auto px-5 flex flex-col lg:items-start md:items-center items-full w-full">
-            <Buttons
-              label="Book a Demo"
-              className="mt-10"
-            />
-          </div>
         </div>
         <Image
           priority
@@ -80,7 +73,7 @@ export default function FeaturesSection({}: Props) {
         <div className="z-20 absolute inset-0 h-full w-full bg-gradient-to-b from-primary-dark via-transparent to-transparent" />
       </div>
 
-      {/* <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" /> */}
+      <div className="z-10 absolute -bottom-5 left-0 right-0 h-20 bg-gradient-to-r from-secondary-dark to-secondary" />
     </section>
   );
 }
