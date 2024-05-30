@@ -1,10 +1,10 @@
 "use client";
 
-import { FullLogo, Logo } from "./Svgs";
 import React, { useState } from "react";
 
 import { BsThreeDots } from "react-icons/bs";
 import { FaLocationPin } from "react-icons/fa6";
+import { FullLogo } from "./Svgs";
 import Image from "next/image";
 import PresenceAnimation from "./PresenceAnimation";
 
@@ -193,6 +193,9 @@ const Card = ({
 };
 
 const Filter = () => {
+  const [location, setLocation] = useState<string | null>(null);
+  const [grade, setGrade] = useState<string | null>(null);
+
   return (
     <div className="w-full p-5 bg-white rounded-2xl flex flex-col gap-3">
       <div className="">
@@ -250,8 +253,16 @@ const Filter = () => {
           >
             <input
               type="checkbox"
-              checked={state === "Selangor"}
+              checked={location === state}
               className=" accent-secondary"
+              onChange={(event) => {
+                const checked = event.target.checked;
+                if (checked) {
+                  setLocation(state);
+                } else {
+                  setLocation(null);
+                }
+              }}
             />
             <p className="text-slate-700 text-md">{state}</p>
           </div>
@@ -267,17 +278,25 @@ const Filter = () => {
           { name: "E | G3 - Less Than RM 1 Mil", value: "E" },
           { name: "F | G2 - Less Than RM 500, 000", value: "F" },
           { name: "G | G1 - Less Than RM 200, 000", value: "G" },
-        ].map((grade, index) => (
+        ].map((g, index) => (
           <div
             key={index}
             className="flex gap-3 mt-2"
           >
             <input
               type="checkbox"
-              checked={grade.value === "G"}
+              checked={g.value === grade}
               className=" accent-secondary"
+              onChange={(event) => {
+                const checked = event.target.checked;
+                if (checked) {
+                  setGrade(g.value);
+                } else {
+                  setGrade(null);
+                }
+              }}
             />
-            <p className="text-slate-700 text-md">{grade.name}</p>
+            <p className="text-slate-700 text-md">{g.name}</p>
           </div>
         ))}
       </div>
