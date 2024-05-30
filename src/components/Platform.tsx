@@ -1,8 +1,15 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  MotionValue,
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useTransform,
+} from "framer-motion";
 import { FullLogo, Logo } from "./Svgs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { BiMoney } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
@@ -14,7 +21,9 @@ import { GrFormAttachment } from "react-icons/gr";
 import Image from "next/image";
 import PresenceAnimation from "./PresenceAnimation";
 
-type Props = {};
+type Props = {
+  scrollYProgress: MotionValue;
+};
 
 type ListTypes = {
   title: string;
@@ -123,7 +132,7 @@ const SideBar = ({ openSideBar }: { openSideBar: boolean }) => {
     <div
       className={`relative bg-white rounded-2xl ${
         openSideBar ? "min-w-[300px]" : ""
-      } h-full flex flex-col justify-between`}
+      } h-full  flex flex-col justify-between`}
     >
       {openSideBar ? (
         <>
@@ -241,7 +250,12 @@ const Card = ({
   createdAt,
 }: ListTypes) => {
   return (
-    <div className="p-5 bg-white rounded-2xl flex flex-col gap-3">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="p-5 bg-white rounded-2xl flex flex-col gap-3"
+    >
       <p className="text-slate-500">{createdAt}</p>
       <h3 className="font-bold text-xl">{title}</h3>
       <p className="text-slate-700 text-sm">{desc}</p>
@@ -259,7 +273,7 @@ const Card = ({
           </p>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -375,23 +389,35 @@ const Filter = () => {
   );
 };
 
-export default function Platform({}: Props) {
+export default function Platform({ scrollYProgress }: Props) {
+  const listOfOrderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
+  const [output, setOutput] = useState([]);
+  const startFromFiftyPercent = useTransform(scrollYProgress, [0.5, 1], [1, 5]);
+
+  useMotionValueEvent(startFromFiftyPercent, "change", (value) => {
+    if (value <= 1) {
+      return setOutput([]);
+    }
+    const newArr: any = list.slice(0, value);
+    setOutput(newArr);
+  });
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth < 767) {
+      if (window.innerWidth <= 1024) {
         setIsMobile(true);
       }
+      if (window.innerWidth > 1024) {
+        setIsMobile(false);
+      }
+
       if (window.innerWidth < 1296) {
         setOpenFilter(false);
       }
       if (window.innerWidth > 1296) {
         setOpenFilter(true);
-      }
-      if (window.innerWidth > 767) {
-        setIsMobile(false);
       }
     }
 
@@ -401,8 +427,9 @@ export default function Platform({}: Props) {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
-    <div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar shadow-inner">
+    <motion.div className="bg-slate-100 rounded-3xl p-3 flex gap-3 w-full overflow-auto no-scrollbar shadow-inner">
       <PresenceAnimation>
         <SideBar openSideBar={!isMobile} />
       </PresenceAnimation>
@@ -411,18 +438,30 @@ export default function Platform({}: Props) {
           <Header />
         </PresenceAnimation>
         <div className="flex gap-3 mt-3 ">
+          {output.length === 0 && (
+            <div className="p-5 rounded-2xl w-full h-full">
+              <p className="text-slate-400 text-center w-full mx-auto">
+                New Request From Client Will Appear Here
+              </p>
+            </div>
+          )}
           <PresenceAnimation delay={0.3}>
-            <div className="flex-1 flex flex-col gap-3 max-h-[600px] overflow-y-scroll  no-scrollbar">
-              {list.map((item, index) => (
-                <Card
-                  key={index}
-                  {...item}
-                />
-              ))}
+            <div
+              ref={listOfOrderRef}
+              className="flex flex-col gap-3 max-h-[600px] overflow-y-scroll  no-scrollbar"
+            >
+              <AnimatePresence initial={false}>
+                {output.map((item: ListTypes, index: number) => (
+                  <Card
+                    key={index}
+                    {...item}
+                  />
+                ))}
+              </AnimatePresence>
               <div className="h-3" />
             </div>
           </PresenceAnimation>
-          {openFilter && (
+          {output.length > 0 && openFilter && (
             <PresenceAnimation delay={0.4}>
               <div className="max-h-[600px] overflow-y-scroll  no-scrollbar">
                 <Filter />
@@ -432,6 +471,6 @@ export default function Platform({}: Props) {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
