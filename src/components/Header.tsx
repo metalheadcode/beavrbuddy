@@ -63,7 +63,7 @@ function Header() {
     { id: 2, label: "About", url: "/about" },
     { id: 3, label: "How It Works", url: "/how-it-works" },
     { id: 4, label: "Services", url: "/services" },
-    { id: 5, label: "Become A Beavr", url: "/book-for-demo" },
+    { id: 5, label: "Become A Beavr", url: "/become-a-beaver" },
   ];
 
   const [isMobileHeader, setIsMobileHeader] = useState(false);
