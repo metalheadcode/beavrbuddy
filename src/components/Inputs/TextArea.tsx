@@ -17,7 +17,7 @@ export default function TextArea({
     <div className="w-full">
       <label className="font-semibold text-secondary-dark">{label}</label>
       <textarea
-        rows={5}
+        rows={3}
         placeholder={placeholder}
         className="outline-none mt-3 border-2 border-primary-dark w-full px-3 py-2 rounded-xl"
         value={value}
