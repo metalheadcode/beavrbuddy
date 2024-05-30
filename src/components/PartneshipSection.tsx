@@ -2,11 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
+type Props = { id: string };
 
-export default function PartnershipSection({}: Props) {
+export default function PartnershipSection({ id }: Props) {
   return (
-    <section className="py-20">
+    <section
+      id={id}
+      className="py-20"
+    >
       <div className="container mx-auto px-5">
         <div className="flex flex-col items-center gap-3">
           <h3 className="text-center text-primary-regular font-bold text-4xl">

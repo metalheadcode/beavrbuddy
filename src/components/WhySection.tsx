@@ -11,9 +11,11 @@ import {
 import MobilePlatform from "./MobilePlatform";
 import Platform from "./Platform";
 
-type Props = {};
+type Props = {
+  id: string;
+};
 
-export default function WhySection({}: Props) {
+export default function WhySection({ id }: Props) {
   const [mobile, setMobile] = useState<boolean>(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -29,10 +31,9 @@ export default function WhySection({}: Props) {
     }
   });
 
-  const width = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
   return (
     <section
+      id={id}
       className="relative container mx-auto h-[3000px] my-10 py-20"
       ref={ref}
     >

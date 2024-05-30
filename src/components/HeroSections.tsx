@@ -3,11 +3,16 @@ import Image from "next/image";
 import PresenceAnimation from "./PresenceAnimation";
 import React from "react";
 
-type Props = {};
+type Props = {
+  id: string;
+};
 
-export default function HeroSections({}: Props) {
+export default function HeroSections({ id }: Props) {
   return (
-    <section className=" pt-[100px] pb-[30px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden rounded-b-4xl">
+    <section
+      id={id}
+      className=" pt-[100px] pb-[30px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden rounded-b-4xl"
+    >
       <div className="h-10" />
       <div className="  container mx-auto relative z-20 flex">
         <div className="md:w-1/2 w-full px-[25px] flex flex-col gap-10 items-start">

@@ -22,11 +22,11 @@ export default function Home() {
   }, []);
   return (
     <div className="relative">
-      <HeroSections />
-      <WhySection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <PartnershipSection />
+      <HeroSections id="hero" />
+      <WhySection id="dashboard" />
+      <FeaturesSection id="features" />
+      <HowItWorksSection id="how-it-works" />
+      <PartnershipSection id="partnership" />
       <CTASection />
     </div>
   );

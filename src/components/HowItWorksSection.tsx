@@ -2,7 +2,9 @@ import Image from "next/image";
 import PresenceAnimation from "./PresenceAnimation";
 import React from "react";
 
-type Props = {};
+type Props = {
+  id: string;
+};
 
 const hiws = [
   {
@@ -32,9 +34,12 @@ const hiws = [
   },
 ];
 
-export default function HowItWorksSection({}: Props) {
+export default function HowItWorksSection({ id }: Props) {
   return (
-    <section className="relative bg-gradient-to-r from-secondary-dark to-secondary rounded-b-4xl">
+    <section
+      id={id}
+      className="relative bg-gradient-to-r from-secondary-dark to-secondary rounded-b-4xl"
+    >
       <div className="container mx-auto py-20">
         <h3 className="text-center text-primary-regular font-bold text-4xl">
           How It Works?

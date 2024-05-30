@@ -2,11 +2,12 @@
 
 import React, { useRef, useState } from "react";
 
-import Buttons from "./Buttons";
 import Image from "next/image";
 import { TitleAndDesc } from "./TitleAndDesc";
 
-type Props = {};
+type Props = {
+  id: string;
+};
 
 const tabsTitles = [
   "Expert Consultation",
@@ -14,12 +15,15 @@ const tabsTitles = [
   "Contractor Matchmaking",
 ];
 
-export default function FeaturesSection({}: Props) {
+export default function FeaturesSection({ id }: Props) {
   const ref = useRef<HTMLInputElement | null>(null);
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section className="relative flex flex-col items-center ">
+    <section
+      id={id}
+      className="relative flex flex-col items-center "
+    >
       <div
         ref={ref}
         className="container mx-auto flex w-5/6 relative z-20 overflow-y-scroll no-scrollbar"

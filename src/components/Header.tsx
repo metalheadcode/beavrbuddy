@@ -60,9 +60,10 @@ function MenuToggle({ toggle }: ToggleProps) {
 function Header() {
   const leftMenu = [
     { id: 1, label: "Home", url: "/" },
-    { id: 2, label: "About", url: "/about" },
-    { id: 3, label: "How It Works", url: "/how-it-works" },
-    { id: 4, label: "Services", url: "/services" },
+    { id: 2, label: "Dashboard", url: "#dashboard" },
+    { id: 3, label: "Features", url: "#features" },
+    { id: 3, label: "How It Works", url: "#how-it-works" },
+    { id: 4, label: "Partnership", url: "#partnership" },
     { id: 5, label: "Become A Beavr", url: "/become-a-beaver" },
   ];
 
@@ -111,7 +112,7 @@ function Header() {
                 className=""
               >
                 <p
-                  className={`hover:bg-slate-950 hover:text-slate-100 px-6 py-3 rounded-full font-medium lg:text-md md:text-sm text-sm text-slate-500 truncate`}
+                  className={`hover:bg-slate-950 hover:text-slate-100 px-3.5 py-3 rounded-full font-medium lg:text-md md:text-sm text-sm text-slate-500 truncate`}
                 >
                   {menu.label}
                 </p>
