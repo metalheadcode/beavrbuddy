@@ -41,7 +41,7 @@ export default function WhySection({ id }: Props) {
         {mobile ? (
           <div className="py-10">
             <h3 className="font-semibold md:text-5xl text-5xl text-center mb-5 text-primary-regular">
-              User Platform
+              Home Owner
             </h3>
             <MobilePlatform scrollYProgress={scrollYProgress} />
           </div>

@@ -67,10 +67,32 @@ function Header() {
     { id: 5, label: "Become A Beavr", url: "/become-a-beaver" },
   ];
 
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileHeader, setIsMobileHeader] = useState(false);
 
-  // const [isOpen, toggleOpen] = useCycle(false, true);
   const [isOpen, setIsOpen] = useState(false);
+
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
 
   useEffect(() => {
     function handleResize() {
@@ -90,7 +112,10 @@ function Header() {
 
   if (!isMobileHeader) {
     return (
-      <div className="fixed z-50 top-0 left-0 right-0 m-3 flex flex-col items-center">
+      <motion.div
+        animate={showNavbar ? { top: 0 } : { top: -100 }}
+        className="fixed z-50 left-0 right-0 m-3 flex flex-col items-center"
+      >
         <div className="bg-slate-100 rounded-full flex justify-center items-center p-2">
           <div className="mx-3">
             <Link href="/">
@@ -133,14 +158,17 @@ function Header() {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   if (isMobileHeader) {
     return (
       <div className="relative">
-        <div className="fixed z-50 m-3 top-0 left-0 right-0 container mx-auto px-5">
+        <motion.div
+          animate={showNavbar ? { top: 0 } : { top: -100 }}
+          className="fixed z-50 m-3 left-0 right-0 container mx-auto px-5"
+        >
           {/* --- NAVBAR --- */}
           <div className="relative z-30 bg-gradient-to-t from-white p-3 rounded-3xl to-slate-100 w-full flex justify-between items-center shadow-lg">
             <Link href="/">
@@ -228,7 +256,7 @@ function Header() {
               />
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
     );
   }

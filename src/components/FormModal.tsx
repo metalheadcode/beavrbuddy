@@ -92,7 +92,7 @@ export default function FormModal({ isOpen = false, setIsOpen }: Props) {
                   setSubject(e.target.value);
                 }}
                 value={subject}
-                placeholder="eg. Renovation Enquire"
+                placeholder="eg. Renovation Enquiry"
               />
             </div>
 
