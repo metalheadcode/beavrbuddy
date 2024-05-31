@@ -14,15 +14,15 @@ export default function HeroSections({ id }: Props) {
       className=" pt-[100px] pb-[30px] bg-gradient-to-tl from-primary-regular to-primary-light relative overflow-hidden rounded-b-4xl"
     >
       <div className="h-10" />
-      <div className="  container mx-auto relative z-20 flex">
-        <div className="md:w-1/2 w-full px-[25px] flex flex-col gap-10 items-start">
+      <div className="container mx-auto relative z-20 flex flex-col-reverse md:flex-row flex-wrap items-center justify-center">
+        <div className="md:w-1/2 w-full px-[25px] flex flex-col items-center gap-10 md:items-start">
           <PresenceAnimation>
-            <h3 className=" text-wrap font-black md:text-8xl text-5xl text-white leading-tight">
+            <h3 className=" text-wrap md:text-left text-center font-black md:text-8xl text-5xl text-white leading-tight">
               Let Us Chopped Down Your Renovation Worries
             </h3>
           </PresenceAnimation>
           <PresenceAnimation delay={0.2}>
-            <p className="font-light text-slate-950 md:text-3xl text-xl leading-normal">
+            <p className="font-light md:text-left text-center text-slate-950 md:text-3xl text-xl leading-normal">
               Find top contractors who work as hard as a{" "}
               <span className="text-secondary">beaver</span> to bring your
               vision to life.
