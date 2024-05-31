@@ -419,10 +419,10 @@ export default function Platform({ scrollYProgress }: Props) {
         setIsMobile(false);
       }
 
-      if (window.innerWidth < 1296) {
+      if (window.innerWidth < 800) {
         setOpenFilter(false);
       }
-      if (window.innerWidth > 1296) {
+      if (window.innerWidth > 800) {
         setOpenFilter(true);
       }
     }
