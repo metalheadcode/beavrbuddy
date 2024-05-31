@@ -1,10 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import { FullLogo, Logo } from "./Svgs";
 import React, { useEffect, useState } from "react";
 
-import { BiChevronDown } from "react-icons/bi";
+import Buttons from "./Buttons";
 import Link from "next/link";
 
 type ToggleProps = {
@@ -64,7 +65,11 @@ function Header() {
     { id: 3, label: "Features", url: "#features" },
     { id: 3, label: "How It Works", url: "#how-it-works" },
     { id: 4, label: "Partnership", url: "#partnership" },
-    { id: 5, label: "Become A Beavr", url: "/become-a-beaver" },
+    {
+      id: 5,
+      label: "Become A Beavr",
+      url: "https://forms.gle/NtgemPp1UkidrHfm7",
+    },
   ];
 
   const [showNavbar, setShowNavbar] = useState(true);
@@ -133,6 +138,7 @@ function Header() {
               className="overflow-hidden"
             >
               <Link
+                target={menu.id === 5 ? "_blank" : "_self"}
                 href={menu.url}
                 className=""
               >
@@ -147,7 +153,8 @@ function Header() {
 
           <div className="bg-primary-regular rounded-full">
             <Link
-              href={leftMenu[4].url}
+              target="_blank"
+              href="https://forms.gle/AxBTc1yQ865zFvLX6"
               className=""
             >
               <p
@@ -229,19 +236,27 @@ function Header() {
                       <p className="font-bold text-center mr-2 text-white">
                         {menu.label}
                       </p>
-                      <BiChevronDown
+                      <BiChevronRight
                         className="text-white"
                         size={30}
                       />
                     </Link>
                   </motion.li>
                 ))}
-                <div className="mt-5 mx-auto ">
-                  {/* <Buttons
-                design="primary-full-rounded"
-                label="Get Started"
-                onClick={handleButtonClick}
-              /> */}
+                <div className="mt-5">
+                  <div className="bg-primary-regular rounded-full">
+                    <Link
+                      target="_blank"
+                      href="https://forms.gle/AxBTc1yQ865zFvLX6"
+                      className=""
+                    >
+                      <p
+                        className={`text-center px-6 py-3 rounded-full lg:text-md md:text-sm text-sm text-secondary truncate`}
+                      >
+                        Create A Project
+                      </p>
+                    </Link>
+                  </div>
                 </div>
               </motion.ul>
             )}

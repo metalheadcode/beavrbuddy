@@ -4,21 +4,14 @@ import {
   AnimatePresence,
   MotionValue,
   motion,
-  useMotionValue,
   useMotionValueEvent,
   useTransform,
 } from "framer-motion";
 import { BiMoney, BiShare } from "react-icons/bi";
 import { FullLogo, Logo } from "./Svgs";
-import {
-  IoAddOutline,
-  IoCopyOutline,
-  IoShareOutline,
-  IoShareSharp,
-} from "react-icons/io5";
+import { IoAddOutline, IoCopyOutline, IoShareOutline } from "react-icons/io5";
 import React, { useEffect, useRef, useState } from "react";
 
-import { BsThreeDots } from "react-icons/bs";
 import { FaInbox } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 import { FiSettings } from "react-icons/fi";
@@ -26,7 +19,6 @@ import { GoProject } from "react-icons/go";
 import { GrFormAttachment } from "react-icons/gr";
 import Image from "next/image";
 import PresenceAnimation from "./PresenceAnimation";
-import { SlShare } from "react-icons/sl";
 
 type Props = {
   scrollYProgress: MotionValue;
