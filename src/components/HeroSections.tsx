@@ -28,7 +28,11 @@ export default function HeroSections({ id }: Props) {
               vision to life.
             </p>
           </PresenceAnimation>
-          <Buttons label="Get Started" />
+          <Buttons
+            label="Get Started"
+            href="https://forms.gle/AxBTc1yQ865zFvLX6"
+            target="_blank"
+          />
         </div>
         <div className="md:w-1/2 w-full px-5 flex items-end justify-center relative">
           <Image
